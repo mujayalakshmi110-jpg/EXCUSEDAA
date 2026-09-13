@@ -43,41 +43,46 @@ EXCUSEDA turns the world's most pointless problem into a full-blown technologica
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- [Python ,HTML ,CSS,Java Script]
+- [Flask]
+- [Groq python SDK]
+- [Visual Studio Code, GitHub, Web Browser, Python 3.14.7]
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- [Laptop/Desktop computer]
+- [Internet-connected computer capable of running Python and a modern web browser]
+- [Keyboard, mouse/trackpad, and internet connection]
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+[Install the required Python libraries using:
+pip install -r requirements.txt]
 
 # Run
-[commands]
+[python app.py]
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
+![<img width="1286" height="652" alt="image" src="https://github.com/user-attachments/assets/2ff2d328-2ea9-4e9f-942e-a6e274fe5f7a" />
+](screenshot 1 cover page)
 *Add caption explaining what this shows*
+this shows the title of our project EXCUSEDA
+![<img width="868" height="660" alt="image" src="https://github.com/user-attachments/assets/73825d80-3459-422e-bff7-cdebb10d3cf5" />
+](Add screenshot 2 EXCUSE)
+*Add caption explaining what this shows*
+It contains for  what excuse to be made 
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![<img width="838" height="673" alt="image" src="https://github.com/user-attachments/assets/f6d4fc5b-fb04-4dd8-b9aa-3da4c50b1927" />
+](Add screenshot 3 here with proper name)
+*It shows the excuse made *
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
+![User → Select Situation → Select Mode → Frontend → Flask Backend → Groq AI → Flask Backend → Result & Analysis → User](Add your workflow/architecture diagram here)
 *Add caption explaining your workflow*
-
+describes the worklflow of the project
 For Hardware:
 
 # Schematic & Circuit
