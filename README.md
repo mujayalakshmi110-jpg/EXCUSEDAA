@@ -10,18 +10,35 @@
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Jayalakshmi] - [SOE]
+- Member 2: [Kavya] - [SOE]
+
 
 ### Project Description
-[2-3 lines about what your project does]
+EXCUSEDA is a chaotic excuse generator that cooks up hilarious, believable Malayali excuses for any situation.
+From “just 5 minutes late” to full-on courtroom-level explanations, it’s your AI-powered escape plan when life goes wrong. 💀
+
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+People have been struggling for centuries with the extremely serious problem of not having a believable excuse ready at exactly the right moment.What if you get caught being late, skipping class, or doing absolutely nothing productive… and suddenly your brain forgets every excuse ever invented?
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+### 🚨 THE SOLUTION: EXCUSEDA
+
+Introducing **EXCUSEDA — the world's most unnecessary excuse infrastructure.** 💀
+
+Why waste precious brainpower inventing excuses when you can simply **outsource the lying to technology?**
+
+Just enter your situation, choose your target and preferred style, and EXCUSEDA generates a perfectly crafted **Malayali/Manglish excuse** using AI — complete with unnecessary details, dramatic reasoning, and just enough confidence to make it sound suspiciously believable.
+
+But we didn't stop there.
+
+Already have an excuse? **Rate it. Fix it. Make it worse.**
+Want to know if Amma will believe it? **Put it through the Amma Detector.**
+Think your story can survive an uncle's interrogation? **Step into Excuse Court.** ⚖️
+
+EXCUSEDA turns the world's most pointless problem into a full-blown technological ecosystem — because apparently, **we had the technology, and this is what we chose to do with it.**
+
 
 ## Technical Details
 ### Technologies/Components Used
