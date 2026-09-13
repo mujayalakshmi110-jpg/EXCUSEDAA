@@ -11,19 +11,36 @@ function showPage(pageId) {
 }
 
 function goToMode() {
-    if (!selectedSituation) {
-        const otherSituation = document.getElementById("otherSituationInput").value.trim();
-        if (otherSituation) {
-            selectedSituation = otherSituation;
-        } else {
-            alert("Choose or describe what happened! 😂");
+    const otherSection = document.getElementById("otherSituation");
+    const isOtherSituation = otherSection && !otherSection.classList.contains("hidden");
+
+    if (isOtherSituation) {
+        const input = document.getElementById("otherSituationInput");
+
+        if (!input) {
+            alert("Other situation input not found!");
             return;
         }
+
+        const situation = input.value.trim();
+
+        if (!situation) {
+            alert("Tell EXCUSEDA what happened first! 😂");
+            return;
+        }
+
+        selectedSituation = situation;
     }
+
+    if (!selectedSituation) {
+        alert("Choose what happened first! 😭");
+        return;
+    }
+
+    console.log("Selected situation:", selectedSituation);
 
     showPage("modePage");
 }
-
 function restart() {
     selectedSituation = null;
     selectedMode = null;
@@ -62,9 +79,13 @@ function selectOtherSituation(button) {
         .forEach(btn => btn.classList.remove("selected"));
 
     button.classList.add("selected");
-    selectedSituation = null;
+
+    const input = document.getElementById("otherSituationInput");
+    const typedText = input ? input.value.trim() : "";
+    selectedSituation = typedText || null;
+
     document.getElementById("otherSituation").classList.remove("hidden");
-    document.getElementById("otherSituationInput").focus();
+    if (input) input.focus();
 }
 
 
@@ -119,7 +140,8 @@ async function generateExcuse() {
             body: JSON.stringify({
 
                 situation: selectedSituation,
-                mode: selectedMode
+                mode: selectedMode,
+                target: "custom"
 
             })
 

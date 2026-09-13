@@ -1,1 +1,166 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EXCUSEDA</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <section id="welcomePage" class="page welcome-page">
+            <div class="badge">🤖 AI-POWERED EXCUSE ENGINE</div>
+            <h1>EXCUSEDA</h1>
+            <p class="hero-copy">Your personal excuse, engineered for the moment.</p>
+            <p class="hero-note">Choose what happened and the attitude. Groq will handle the rest.</p>
+            <button class="generate start-button" onclick="showPage('situationPage')">
+                MAKE AN EXCUSE <span aria-hidden="true">→</span>
+            </button>
+        </section>
+
+        <section id="situationPage" class="page hidden">
+            <div class="step-label">01 / 02</div>
+            <h2>What is the excuse for?</h2>
+            <p class="page-intro">Start with the situation. Keep it honest-ish.</p>
+
+            <h2>😬 What happened?</h2>
+
+            <div class="options">
+
+                <button class="option" onclick="selectSituation(this, 'class')">
+                    ❌ Didn't attend class
+                </button>
+
+                <button class="option" onclick="selectSituation(this, 'assignment')">
+                    📝 Didn't submit assignment
+                </button>
+
+                <button class="option" onclick="selectSituation(this, 'late')">
+                    ⏰ Came late
+                </button>
+
+                <button class="option" onclick="selectSituation(this, 'study')">
+                    📚 Didn't study
+                </button>
+
+                <button class="option" onclick="selectSituation(this, 'call')">
+                    📞 Didn't call back
+                </button>
+
+                <button class="option" onclick="selectSituation(this, 'project')">
+                    💻 Didn't finish project
+                </button>
+
+                <button class="option" onclick="selectOtherSituation(this)">
+                    ✍️ Others
+                </button>
+
+            </div>
+
+            <div id="otherSituation" class="other-situation hidden">
+                <label for="otherSituationInput">What happened?</label>
+                <input id="otherSituationInput" type="text" maxlength="160" placeholder="Example: I forgot to reply to my friend">
+            </div>
+
+            <button class="next-button" onclick="goToMode()">NEXT: CHOOSE STYLE <span aria-hidden="true">→</span></button>
+        </section>
+
+        <section id="modePage" class="page hidden">
+            <div class="step-label">02 / 02</div>
+            <h2>What kind of excuse?</h2>
+            <p class="page-intro">Pick your delivery: believable, dramatic, or unstoppable.</p>
+
+            <div class="modes">
+
+                <button class="mode" onclick="selectMode(this, 'normal')">
+                    🟢
+                    <strong>Normal</strong>
+                    <small>Simple & believable</small>
+                </button>
+
+                <button class="mode" onclick="selectMode(this, 'cinema')">
+                    🎬
+                    <strong>Cinema</strong>
+                    <small>Maximum drama</small>
+                </button>
+
+                <button class="mode" onclick="selectMode(this, 'mass')">
+                    🔥
+                    <strong>Mass</strong>
+                    <small>Overconfidence: 100%</small>
+                </button>
+
+            </div>
+
+            <div class="navigation">
+                <button class="back-button" onclick="showPage('situationPage')">← BACK</button>
+                <button class="generate" onclick="generateExcuse()">GENERATE EXCUSE <span aria-hidden="true">✦</span></button>
+            </div>
+        </section>
+
+
+        <!-- RESULT -->
+        <section id="result" class="result hidden">
+
+            <h2>🧪 EXCUSE ANALYSIS</h2>
+
+            <div class="excuse-box">
+                <p id="excuseText"></p>
+            </div>
+
+            <div class="scores">
+
+                <div class="score">
+                    <span>Believability</span>
+                    <strong id="believability">--</strong>
+                </div>
+
+                <div class="score">
+                    <span>Originality</span>
+                    <strong id="originality">--</strong>
+                </div>
+
+                <div class="score">
+                    <span>Suspicion</span>
+                    <strong id="suspicion">--</strong>
+                </div>
+
+                <div class="score">
+                    <span>Malayali Factor</span>
+                    <strong id="malayali">--</strong>
+                </div>
+
+            </div>
+
+            <div class="verdict">
+                <span>⚠️</span>
+                <p id="verdict"></p>
+            </div>
+
+            <button class="secondary" onclick="ammaTest()">
+                👩 RUN AMMA TEST
+            </button>
+
+            <button class="secondary" onclick="copyExcuse()">
+                📋 COPY EXCUSE
+            </button>
+
+            <button class="back-button restart-button" onclick="restart()">↻ MAKE ANOTHER EXCUSE</button>
+
+        </section>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

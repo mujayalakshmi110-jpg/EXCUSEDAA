@@ -1,6 +1,22 @@
 from flask import Flask, render_template, request, jsonify
+import os
+from groq import Groq
 
 app = Flask(__name__)
+api_key = os.environ.get("GROQ_API_KEY")
+client = Groq(api_key=api_key) if api_key else None
+
+
+def build_custom_fallback_excuse(situation, mode):
+    text = (situation or "").strip()
+    if not text:
+        return "Actually, situation kurachu complicated aanu... EXCUSEDA investigation team is currently reviewing it. 😂"
+
+    if mode == "cinema":
+        return f"{text} happened in a way that felt like a plot twist, and I got dragged into the chaos before I could fix it."
+    if mode == "mass":
+        return f"{text} wasn’t a mistake; it was a timing issue with extraordinary circumstances. I was not careless, just strategically overwhelmed."
+    return f"Honestly, {text} happened, and I got caught in the middle of it. It wasn’t intentional, just a messy chain of events."
 
 
 # Comedy excuse database
@@ -122,28 +138,57 @@ def home():
 
 @app.route("/generate", methods=["POST"])
 def generate():
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
 
     situation = data.get("situation")
     target = data.get("target")
     mode = data.get("mode")
 
-    # If that exact combination isn't available,
-    # use a harmless generic response.
-    excuse = (
-        EXCUSES
-        .get(situation, {})
-        .get(target, {})
-        .get(mode)
-    )
+    prompt = f"""
+You are EXCUSEDA, a hilarious excuse generator.
 
-    if not excuse:
-        excuse = (
-            "Actually, situation kurachu complicated aanu... "
-            "EXCUSEDA investigation team is currently reviewing it. 😂"
+Generate ONE short, funny and creative excuse.
+
+Situation: {situation}
+Excuse is for: {target}
+Style: {mode}
+
+Rules:
+- Make it sound like something a college student would actually say.
+- Keep it funny.
+- You can use Malayalam-English Manglish.
+- Do not give dangerous, illegal or harmful excuses.
+- Do not explain the excuse.
+- Return ONLY the excuse itself.
+"""
+
+    try:
+        if client is None:
+            raise RuntimeError("GROQ_API_KEY is not configured")
+
+        response = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ]
         )
 
-    # Comedy scores — intentionally playful, not real lie detection.
+        excuse = response.choices[0].message.content.strip()
+
+    except Exception as e:
+        print("Groq error:", e)
+
+        excuse = None
+
+        if situation in EXCUSES and isinstance(EXCUSES.get(situation), dict):
+            excuse = EXCUSES.get(situation, {}).get(target, {}).get(mode)
+
+        if not excuse:
+            excuse = build_custom_fallback_excuse(situation, mode)
+
     scores = {
         "believability": 60 + len(excuse) % 31,
         "originality": 35 + len(excuse) % 60,
@@ -169,7 +214,6 @@ def generate():
         "malayali_factor": scores["malayali_factor"],
         "verdict": verdict
     })
-
 
 if __name__ == "__main__":
     app.run(debug=True)
