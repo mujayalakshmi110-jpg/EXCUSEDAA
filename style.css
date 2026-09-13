@@ -1,305 +1,687 @@
+/* =====================================================
+   GENERAL
+   ===================================================== */
 
- {   box-sizing: border-box;
+* {
+    box-sizing: border-box;
 }
 
+
 body {
+
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     background: #f4efe6;
+
     color: #17221d;
 }
 
+
+/* =====================================================
+   MAIN APP
+   ===================================================== */
+
 .app {
+
     max-width: 760px;
+
     margin: auto;
-    padding: 32px 20px 70px;
+
+    padding:
+        32px
+        20px
+        70px;
 }
 
+
+/* =====================================================
+   PAGES
+   ===================================================== */
+
 .page {
-    min-height: calc(100vh - 102px);
-    padding: 42px 0;
-    animation: appear 450ms ease both;
+
+    min-height:
+        calc(100vh - 102px);
+
+    padding:
+        42px 0;
+
+    animation:
+        appear 450ms ease both;
 }
+
 
 .hidden {
     display: none;
 }
 
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   WELCOME PAGE
+   ===================================================== */
+
 .welcome-page {
+
     text-align: center;
+
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 }
 
-@keyframes appear {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+
+/* =====================================================
+   BADGE
+   ===================================================== */
 
 .badge {
+
     display: inline-block;
-    padding: 8px 15px;
+
+    padding:
+        8px
+        15px;
+
     border-radius: 2px;
+
     background: #e65b32;
+
     color: #fffaf2;
-    font: bold 12px Arial, sans-serif;
+
+    font:
+        bold 12px
+        Arial,
+        sans-serif;
+
     letter-spacing: .5px;
 }
 
+
+/* =====================================================
+   TITLE
+   ===================================================== */
+
 .welcome-page h1 {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-    font-size: clamp(74px, 18vw, 150px);
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        sans-serif;
+
+    font-size:
+        clamp(74px, 18vw, 150px);
+
     line-height: .9;
-    margin: 30px 0 18px;
+
+    margin:
+        30px 0 18px;
+
     letter-spacing: 2px;
 }
 
+
+/* =====================================================
+   TEXT
+   ===================================================== */
+
 .hero-copy {
+
     max-width: 460px;
+
     margin: 0;
+
     font-size: 25px;
+
     line-height: 1.15;
 }
 
+
 .hero-note,
 .page-intro {
+
     font-size: 18px;
+
     color: #637067;
+
     line-height: 1.5;
 }
 
+
+/* =====================================================
+   STEP LABEL
+   ===================================================== */
+
 .step-label {
+
     color: #e65b32;
-    font: bold 13px Arial, sans-serif;
+
+    font:
+        bold 13px
+        Arial,
+        sans-serif;
+
     letter-spacing: 2px;
 }
 
+
+/* =====================================================
+   HEADINGS
+   ===================================================== */
+
 .page h2 {
+
     font-size: 38px;
+
     line-height: 1.05;
-    margin: 14px 0 0;
+
+    margin:
+        14px 0 0;
 }
+
 
 .page-intro {
-    margin: 10px 0 34px;
+
+    margin:
+        10px 0 34px;
 }
 
+
+/* =====================================================
+   SITUATION OPTIONS
+   ===================================================== */
+
 .options {
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 12px;
 }
 
+
 .option {
+
     padding: 20px;
-    border: 1px solid #c9c4b8;
+
+    border:
+        1px solid #c9c4b8;
+
     border-radius: 2px;
+
     background: #fffaf2;
+
     text-align: left;
-    font: 16px Georgia, serif;
+
+    font:
+        16px
+        Georgia,
+        serif;
+
     color: #17221d;
+
     cursor: pointer;
+
     transition: .2s ease;
 }
+
 
 .option:hover,
 .mode:hover {
+
     border-color: #e65b32;
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 }
+
 
 .option.selected,
 .mode.selected {
+
     background: #17221d;
+
     color: #fffaf2;
+
     border-color: #17221d;
 }
 
+
+/* =====================================================
+   OTHER SITUATION
+   ===================================================== */
+
 .other-situation {
+
     display: grid;
+
     gap: 8px;
+
     margin-top: 16px;
 }
 
+
 .other-situation label {
-    font: bold 14px Arial, sans-serif;
+
+    font:
+        bold 14px
+        Arial,
+        sans-serif;
+
     color: #637067;
 }
 
+
 .other-situation input {
+
     width: 100%;
+
     padding: 16px;
-    border: 1px solid #c9c4b8;
+
+    border:
+        1px solid #c9c4b8;
+
     border-radius: 2px;
+
     background: #fffaf2;
+
     color: #17221d;
-    font: 16px Georgia, serif;
+
+    font:
+        16px
+        Georgia,
+        serif;
 }
 
+
+/* =====================================================
+   MODES
+   ===================================================== */
+
 .modes {
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 15px;
 }
 
+
 .mode {
-    padding: 20px 10px;
-    border: 1px solid #c9c4b8;
+
+    padding:
+        20px
+        10px;
+
+    border:
+        1px solid #c9c4b8;
+
     border-radius: 2px;
+
     background: #fffaf2;
+
     cursor: pointer;
+
     display: flex;
+
     flex-direction: column;
+
     gap: 8px;
+
     align-items: center;
+
     font-size: 28px;
+
     color: #17221d;
+
     transition: .2s ease;
 }
 
+
 .mode strong {
+
     font-size: 16px;
 }
 
+
 .mode small {
+
     font-size: 12px;
+
     color: #637067;
 }
 
+
 .mode.selected small {
+
     color: #ddd6c9;
 }
 
+
+/* =====================================================
+   BUTTONS
+   ===================================================== */
+
 .generate {
-    padding: 18px 24px;
+
+    padding:
+        18px
+        24px;
+
     border: none;
+
     border-radius: 2px;
+
     background: #e65b32;
+
     color: white;
-    font: bold 15px Arial, sans-serif;
+
+    font:
+        bold 15px
+        Arial,
+        sans-serif;
+
     letter-spacing: 1px;
+
     cursor: pointer;
-    margin: 34px 0 0;
+
+    margin:
+        34px 0 0;
 }
+
 
 .generate:hover {
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
 }
 
+
 .start-button {
+
     font-size: 16px;
 }
 
+
 .next-button,
 .back-button {
+
     border: 0;
+
     background: transparent;
+
     color: #17221d;
-    font: bold 14px Arial, sans-serif;
+
+    font:
+        bold 14px
+        Arial,
+        sans-serif;
+
     letter-spacing: 1px;
+
     cursor: pointer;
 }
 
+
 .next-button {
+
     display: block;
-    margin: 34px 0 0 auto;
+
+    margin:
+        34px 0 0 auto;
+
     color: #e65b32;
 }
 
+
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
+
 .navigation {
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
+
     margin-top: 34px;
 }
 
+
 .navigation .next-button,
 .navigation .generate {
+
     margin: 0;
 }
 
+
+/* =====================================================
+   RESULT
+   ===================================================== */
+
 .result {
+
     background: #fffaf2;
+
     padding: 30px;
+
     border-radius: 2px;
-    border: 1px solid #17221d;
+
+    border:
+        1px solid #17221d;
+
     margin-top: 30px;
 }
 
-.excuse-box {
-    background: #f1e6d5;
-    padding: 25px;
-    border-radius: 2px;
-    font-size: 19px;
-    line-height: 1.6;
+
+.result h2 {
+
+    margin-top: 0;
 }
 
+.excuse-result {
+
+    display: block;
+}
+
+
+/* =====================================================
+   EXCUSE BOX
+   ===================================================== */
+
+.excuse-box {
+
+    background: #f1e6d5;
+
+    padding: 25px;
+
+    border-radius: 2px;
+
+    font-size: 19px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+}
+
+
+/* =====================================================
+   SCORE CARDS
+   ===================================================== */
+
 .scores {
+
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
     gap: 12px;
+
     margin-top: 20px;
 }
 
+
 .score {
+
     background: #f1e6d5;
+
     padding: 18px;
+
     border-radius: 2px;
+
     text-align: center;
 }
 
+
 .score span {
+
     display: block;
+
     font-size: 12px;
+
     color: #637067;
 }
 
+
 .score strong {
+
     display: block;
+
     font-size: 25px;
+
     margin-top: 8px;
 }
 
+
+/* =====================================================
+   VERDICT
+   ===================================================== */
+
 .verdict {
+
     margin-top: 20px;
+
     padding: 15px;
+
     background: #f4d4a6;
+
     border-radius: 2px;
+
     display: flex;
+
     gap: 10px;
+
     align-items: center;
 }
 
+
+.verdict p {
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   SECONDARY BUTTON
+   ===================================================== */
+
 .secondary {
+
     margin-top: 20px;
-    padding: 15px 25px;
-    border: 1px solid #17221d;
+
+    padding:
+        15px
+        25px;
+
+    border:
+        1px solid #17221d;
+
     background: transparent;
+
     border-radius: 2px;
+
     font-weight: bold;
+
     cursor: pointer;
 }
 
+
+/* =====================================================
+   RESTART
+   ===================================================== */
+
 .restart-button {
+
     display: block;
+
     margin-top: 24px;
 }
 
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
 @media (max-width: 650px) {
+
     .page h2 {
+
         font-size: 32px;
     }
+
 
     .options,
     .modes,
     .scores {
+
         grid-template-columns: 1fr;
     }
 
+
     .navigation {
+
         align-items: flex-start;
+
         gap: 20px;
     }
+
 }
