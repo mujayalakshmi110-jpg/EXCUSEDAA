@@ -2,11 +2,11 @@
 
 
 
-# [Project Name] 🎯
+# [EXCUSEDA] 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [REBELS]
 
 
 ### Team Members
